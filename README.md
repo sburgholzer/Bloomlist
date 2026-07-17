@@ -3,6 +3,7 @@
 🌱 A daily goal tracker where every task you complete grows a plant — your day, as a garden.
 
 **[Live Demo](https://bloomlist.scottburgholzer.tech)**
+**[Youtube Video Demo](https://youtu.be/9_NOVrmDQbU)**
 
 ![React](https://img.shields.io/badge/React-18-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5.6-blue) ![Vite](https://img.shields.io/badge/Vite-6-purple) ![Tests](https://img.shields.io/badge/Tests-74%20passing-green) ![AWS](https://img.shields.io/badge/AWS-S3%20%2B%20CloudFront-orange)
 

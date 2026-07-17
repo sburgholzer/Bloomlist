@@ -1,0 +1,208 @@
+/* Plant container */
+.plantContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 70px;
+  height: 90px;
+  position: relative;
+}
+
+.animating {
+  /* marker class for animation state */
+}
+
+.cancelTransition {
+  transition: none !important;
+}
+
+/* Stage enter animation */
+.stageEnter {
+  animation: fadeInScale 0.3s ease-out;
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.7);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===== Seed Stage ===== */
+/* Small brown circle - smallest size */
+.seed {
+  width: 16px;
+  height: 16px;
+  background-color: #8b6914;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== Sprout Stage ===== */
+/* Medium size, green, elongated shape */
+.sprout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.sproutStem {
+  width: 4px;
+  height: 24px;
+  background-color: #4caf50;
+  border-radius: 2px;
+}
+
+.sproutLeaf {
+  width: 14px;
+  height: 14px;
+  background-color: #66bb6a;
+  border-radius: 50% 0 50% 50%;
+  transform: rotate(-45deg);
+  margin-bottom: -2px;
+}
+
+/* ===== Budding Stage ===== */
+/* Taller, pink bud, leaves on sides */
+.budding {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.buddingStem {
+  width: 4px;
+  height: 34px;
+  background-color: #43a047;
+  border-radius: 2px;
+}
+
+.buddingBud {
+  width: 18px;
+  height: 20px;
+  background-color: #e091d3;
+  border-radius: 50% 50% 40% 40%;
+  margin-bottom: -2px;
+}
+
+.buddingLeafLeft {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-18px) rotate(-30deg);
+  width: 12px;
+  height: 8px;
+  background-color: #66bb6a;
+  border-radius: 50% 0 50% 50%;
+}
+
+.buddingLeafRight {
+  position: absolute;
+  bottom: 14px;
+  right: 50%;
+  transform: translateX(18px) rotate(30deg);
+  width: 12px;
+  height: 8px;
+  background-color: #66bb6a;
+  border-radius: 0 50% 50% 50%;
+}
+
+/* ===== Blooming Stage ===== */
+/* Full flower with petals - largest, most colorful */
+.blooming {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.bloomingStem {
+  width: 5px;
+  height: 38px;
+  background-color: #388e3c;
+  border-radius: 2px;
+}
+
+.bloomingFlower {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  margin-bottom: -2px;
+}
+
+.bloomingPetal {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background-color: #ff6b9d;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+}
+
+.bloomingPetal:nth-child(1) {
+  transform: translate(-50%, -50%) translateY(-10px);
+}
+
+.bloomingPetal:nth-child(2) {
+  transform: translate(-50%, -50%) rotate(60deg) translateY(-10px);
+}
+
+.bloomingPetal:nth-child(3) {
+  transform: translate(-50%, -50%) rotate(120deg) translateY(-10px);
+}
+
+.bloomingPetal:nth-child(4) {
+  transform: translate(-50%, -50%) rotate(180deg) translateY(-10px);
+}
+
+.bloomingPetal:nth-child(5) {
+  transform: translate(-50%, -50%) rotate(240deg) translateY(-10px);
+}
+
+.bloomingPetal:nth-child(6) {
+  transform: translate(-50%, -50%) rotate(300deg) translateY(-10px);
+}
+
+.bloomingCenter {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: #fdd835;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.bloomingLeafLeft {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-20px) rotate(-30deg);
+  width: 14px;
+  height: 9px;
+  background-color: #4caf50;
+  border-radius: 50% 0 50% 50%;
+}
+
+.bloomingLeafRight {
+  position: absolute;
+  bottom: 12px;
+  right: 50%;
+  transform: translateX(20px) rotate(30deg);
+  width: 14px;
+  height: 9px;
+  background-color: #4caf50;
+  border-radius: 0 50% 50% 50%;
+}

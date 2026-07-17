@@ -6,8 +6,8 @@ This plan implements a gamified daily task tracker as a React 18 + TypeScript si
 
 ## Tasks
 
-- [ ] 1. Set up project structure and core types
-  - [ ] 1.1 Initialize Vite + React + TypeScript project and install dependencies
+- [x] 1. Set up project structure and core types
+  - [x] 1.1 Initialize Vite + React + TypeScript project and install dependencies
     - Run `npm create vite@latest` with React TypeScript template or configure manually
     - Install dev dependencies: `vitest`, `@testing-library/react`, `@testing-library/jest-dom`, `fast-check`, `jsdom`
     - Configure `vite.config.ts` with test settings for Vitest (jsdom environment)
@@ -15,14 +15,14 @@ This plan implements a gamified daily task tracker as a React 18 + TypeScript si
     - Create directory structure: `src/components/`, `src/services/`, `src/hooks/`, `src/types/`, `src/styles/`, `src/__tests__/`
     - _Requirements: 7.1, 8.1_
 
-  - [ ] 1.2 Define core TypeScript interfaces and types
+  - [x] 1.2 Define core TypeScript interfaces and types
     - Create `src/types/index.ts` with `GrowthStage`, `Task`, `DayState`, `StorageResult`, `TaskAction` types
     - Define `TaskInputProps`, `TaskItemProps`, `PlantProps`, `GardenPanelProps` component prop interfaces
     - Define `StorageService` and `DayBoundaryService` interfaces
     - _Requirements: 1.1, 1.6, 2.1, 3.2_
 
-- [ ] 2. Implement state management and core logic
-  - [ ] 2.1 Implement the taskReducer function
+- [x] 2. Implement state management and core logic
+  - [x] 2.1 Implement the taskReducer function
     - Create `src/hooks/useTaskState.ts` (or `src/reducers/taskReducer.ts`)
     - Implement `ADD_TASK`: generate UUID, trim title, validate non-empty/non-whitespace, enforce max 20, append with createdAt timestamp
     - Implement `TOGGLE_TASK`: flip completed boolean for matching task ID
@@ -32,42 +32,42 @@ This plan implements a gamified daily task tracker as a React 18 + TypeScript si
     - Ensure tasks remain ordered by createdAt after all operations
     - _Requirements: 1.1, 1.2, 1.4, 1.6, 1.7, 2.1, 6.3_
 
-  - [ ]* 2.2 Write property tests for taskReducer — valid addition
+  - [x] 2.2 Write property tests for taskReducer — valid addition
     - **Property 1: Valid task addition grows the list**
     - **Validates: Requirements 1.1**
 
-  - [ ]* 2.3 Write property tests for taskReducer — whitespace rejection
+  - [x] 2.3 Write property tests for taskReducer — whitespace rejection
     - **Property 2: Whitespace-only titles are rejected**
     - **Validates: Requirements 1.4**
 
-  - [ ]* 2.4 Write property tests for taskReducer — ordering invariant
+  - [x] 2.4 Write property tests for taskReducer — ordering invariant
     - **Property 3: Task list ordering invariant**
     - **Validates: Requirements 1.2**
 
-  - [ ]* 2.5 Write property tests for taskReducer — max 20 tasks
+  - [x] 2.5 Write property tests for taskReducer — max 20 tasks
     - **Property 4: Maximum 20 tasks invariant**
     - **Validates: Requirements 1.6, 1.7**
 
-  - [ ]* 2.6 Write property tests for taskReducer — deletion removes target only
+  - [x] 2.6 Write property tests for taskReducer — deletion removes target only
     - **Property 9: Task deletion removes exactly the target**
     - **Validates: Requirements 6.3**
 
-  - [ ] 2.7 Implement derived state helper functions
+  - [x] 2.7 Implement derived state helper functions
     - Create `src/utils/gardenHelpers.ts`
     - Implement `getGrowthStage(task: Task): GrowthStage` — returns 'blooming' if completed, 'seed' if not
     - Implement `getProgress(tasks: Task[]): { completed: number; total: number }`
     - Implement `isCelebration(tasks: Task[]): boolean` — true when non-empty and all completed
     - _Requirements: 2.4, 3.3, 3.5, 3.6_
 
-  - [ ]* 2.8 Write property tests for derived state helpers
+  - [x] 2.8 Write property tests for derived state helpers
     - **Property 5: Plant count equals task count**
     - **Property 6: Growth stage determined by completion state**
     - **Property 7: Progress counter derivation**
     - **Property 8: Celebration condition**
     - **Validates: Requirements 1.3, 2.2, 2.3, 2.4, 3.2, 3.3, 3.5, 3.6, 6.4, 6.5**
 
-- [ ] 3. Implement storage and day boundary services
-  - [ ] 3.1 Implement StorageService
+- [x] 3. Implement storage and day boundary services
+  - [x] 3.1 Implement StorageService
     - Create `src/services/storageService.ts`
     - Implement `isAvailable()`: feature-detect localStorage with try/catch
     - Implement `save(state: DayState)`: serialize to JSON, write to `bloomlist_day_{date}` key, handle quota errors
@@ -75,23 +75,23 @@ This plan implements a gamified daily task tracker as a React 18 + TypeScript si
     - Handle corrupted data gracefully (return null, log warning)
     - _Requirements: 7.1, 7.2, 7.3, 7.4, 7.5_
 
-  - [ ]* 3.2 Write property tests for StorageService
+  - [x] 3.2 Write property tests for StorageService
     - **Property 10: Day state isolation**
     - **Property 11: Serialization round-trip**
     - **Property 12: Corrupt storage graceful handling**
     - **Validates: Requirements 5.1, 5.2, 5.3, 7.1, 7.2, 7.5**
 
-  - [ ] 3.3 Implement DayBoundaryService
+  - [x] 3.3 Implement DayBoundaryService
     - Create `src/services/dayBoundaryService.ts`
     - Implement `getCurrentDate()`: return YYYY-MM-DD in local timezone
     - Implement `onDayChange(callback)`: use `setInterval` (every 60s) to check if date has changed, call callback on change, return cleanup function
     - _Requirements: 5.1, 5.2, 5.4_
 
-- [ ] 4. Checkpoint — Verify core logic and services
+- [x] 4. Checkpoint — Verify core logic and services
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ] 5. Implement UI components — Task management
-  - [ ] 5.1 Implement TaskInput component
+- [x] 5. Implement UI components — Task management
+  - [x] 5.1 Implement TaskInput component
     - Create `src/components/TaskInput/TaskInput.tsx` and `TaskInput.module.css`
     - Render text input with `maxLength={150}` and submit button
     - Validate: show inline error for empty/whitespace-only submission
@@ -100,7 +100,7 @@ This plan implements a gamified daily task tracker as a React 18 + TypeScript si
     - Ensure submit button has minimum 44x44px touch target
     - _Requirements: 1.1, 1.4, 1.5, 1.6, 1.7, 8.3_
 
-  - [ ] 5.2 Implement TaskItem component
+  - [x] 5.2 Implement TaskItem component
     - Create `src/components/TaskItem/TaskItem.tsx` and `TaskItem.module.css`
     - Render checkbox (toggle), task title, and delete button
     - Apply strikethrough style and checked state when completed
@@ -109,20 +109,20 @@ This plan implements a gamified daily task tracker as a React 18 + TypeScript si
     - Ensure all interactive elements meet 44x44px minimum touch target
     - _Requirements: 2.1, 2.5, 6.1, 6.2, 8.3_
 
-  - [ ] 5.3 Implement TaskList component
+  - [x] 5.3 Implement TaskList component
     - Create `src/components/TaskList/TaskList.tsx` and `TaskList.module.css`
     - Render list of TaskItem components in creation order
     - Show empty state message when no tasks exist
     - _Requirements: 1.2, 6.6_
 
-  - [ ]* 5.4 Write unit tests for TaskInput, TaskItem, and TaskList components
+  - [x] 5.4 Write unit tests for TaskInput, TaskItem, and TaskList components
     - Test TaskInput: submit valid title, reject empty, show limit message
     - Test TaskItem: toggle, delete with confirmation, visual states
     - Test TaskList: renders items in order, shows empty state
     - _Requirements: 1.1, 1.4, 1.7, 2.1, 6.1, 6.2_
 
-- [ ] 6. Implement UI components — Garden display
-  - [ ] 6.1 Implement Plant component with CSS growth animations
+- [x] 6. Implement UI components — Garden display
+  - [x] 6.1 Implement Plant component with CSS growth animations
     - Create `src/components/Plant/Plant.tsx` and `Plant.module.css`
     - Render four distinct visual Growth_Stages (seed, sprout, budding, blooming) using CSS classes
     - Each stage must differ in at least two of: size, color, shape/structural detail
@@ -132,36 +132,36 @@ This plan implements a gamified daily task tracker as a React 18 + TypeScript si
     - Use CSS animations + `onAnimationEnd` or `requestAnimationFrame` for stage transitions
     - _Requirements: 3.3, 3.4, 4.1, 4.2, 4.3, 4.4, 4.5_
 
-  - [ ] 6.2 Implement GardenGrid and GardenPanel components
+  - [x] 6.2 Implement GardenGrid and GardenPanel components
     - Create `src/components/GardenPanel/GardenPanel.tsx`, `GardenGrid.tsx`, and CSS modules
     - Render one Plant per task in a responsive grid layout
     - Pass growth stage and animation state to each Plant
     - Show bare garden plot when no tasks exist
     - _Requirements: 3.1, 3.2, 6.4, 6.6_
 
-  - [ ] 6.3 Implement CelebrationOverlay component
+  - [x] 6.3 Implement CelebrationOverlay component
     - Create `src/components/CelebrationOverlay/CelebrationOverlay.tsx` and CSS module
     - Display confetti/particle effect when all tasks are complete (non-empty list)
     - Animation lasts 2–5 seconds
     - Remove celebration when any task is marked incomplete
     - _Requirements: 3.5, 3.6_
 
-  - [ ]* 6.4 Write unit tests for Plant, GardenPanel, and CelebrationOverlay
+  - [x] 6.4 Write unit tests for Plant, GardenPanel, and CelebrationOverlay
     - Test Plant renders correct stage, applies animation classes
     - Test GardenPanel renders correct number of plants
     - Test CelebrationOverlay appears/disappears based on completion state
     - _Requirements: 3.2, 3.5, 4.1_
 
-- [ ] 7. Checkpoint — Verify UI components render correctly
+- [x] 7. Checkpoint — Verify UI components render correctly
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ] 8. Implement layout, header, and app shell
-  - [ ] 8.1 Implement Header component
+- [x] 8. Implement layout, header, and app shell
+  - [x] 8.1 Implement Header component
     - Create `src/components/Header/Header.tsx` and `Header.module.css`
     - Display app title ("Bloomlist"), current date, and progress counter ("X of Y complete")
     - _Requirements: 2.4_
 
-  - [ ] 8.2 Implement responsive MainLayout component
+  - [x] 8.2 Implement responsive MainLayout component
     - Create `src/components/MainLayout/MainLayout.tsx` and `MainLayout.module.css`
     - Side-by-side layout (TaskPanel left, Garden right) at ≥768px viewport
     - Stacked layout (TaskPanel above Garden) at <768px viewport
@@ -169,19 +169,19 @@ This plan implements a gamified daily task tracker as a React 18 + TypeScript si
     - Adapt dynamically on resize without page reload
     - _Requirements: 8.1, 8.2, 8.4_
 
-  - [ ] 8.3 Implement StorageWarning component
+  - [x] 8.3 Implement StorageWarning component
     - Create `src/components/StorageWarning/StorageWarning.tsx` and CSS module
     - Show persistent warning banner when localStorage is unavailable or write fails
     - _Requirements: 7.4_
 
-  - [ ]* 8.4 Write unit tests for Header, MainLayout, and StorageWarning
+  - [x] 8.4 Write unit tests for Header, MainLayout, and StorageWarning
     - Test Header displays progress correctly
     - Test layout classes change at breakpoint
     - Test StorageWarning visibility based on storage availability
     - _Requirements: 2.4, 7.4, 8.1, 8.2_
 
-- [ ] 9. Wire everything together in the App component
-  - [ ] 9.1 Implement App component with full state management
+- [x] 9. Wire everything together in the App component
+  - [x] 9.1 Implement App component with full state management
     - Create/update `src/App.tsx`
     - Initialize `useReducer` with `taskReducer`
     - On mount: check storage availability, load state for current date (or start empty), set up day boundary listener
@@ -192,20 +192,20 @@ This plan implements a gamified daily task tracker as a React 18 + TypeScript si
     - Clean up day boundary listener on unmount
     - _Requirements: 1.1, 2.1, 5.1, 5.2, 5.3, 5.4, 7.1, 7.2, 7.3, 7.4_
 
-  - [ ] 9.2 Implement custom hook useTaskManager
+  - [x] 9.2 Implement custom hook useTaskManager
     - Create `src/hooks/useTaskManager.ts`
     - Encapsulate reducer, storage persistence, and day boundary detection
     - Expose: `state`, `addTask`, `toggleTask`, `deleteTask`, `storageAvailable`
     - Handle day reset: when day changes, dispatch RESET_DAY
     - _Requirements: 5.1, 5.4, 7.1_
 
-  - [ ]* 9.3 Write integration tests for full task lifecycle
+  - [x] 9.3 Write integration tests for full task lifecycle
     - Test: create task → verify in list and garden → complete → verify blooming → delete → verify removed
     - Test: day reset clears state
     - Test: storage round-trip with localStorage mock
     - _Requirements: 1.1, 2.2, 5.1, 6.3, 7.2_
 
-- [ ] 10. Final checkpoint — Full integration verification
+- [x] 10. Final checkpoint — Full integration verification
   - Ensure all tests pass, ask the user if questions arise.
 
 ## Notes

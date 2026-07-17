@@ -1,0 +1,33 @@
+# Dependencies
+node_modules
+
+# Build output
+dist
+
+# IDE / Editor
+.vscode
+.idea
+*.swp
+*.swo
+.DS_Store
+
+# Environment
+.env
+.env.*
+
+# Logs
+*.log
+npm-debug.log*
+
+# Testing
+coverage
+
+# Vite
+*.local
+
+# CDK
+infra/dist
+infra/cdk.out
+infra/cdk.context.json
+infra/cdk.json
+infra/node_modules

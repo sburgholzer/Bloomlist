@@ -1,0 +1,23 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+  width: 100%;
+}
+
+.cell {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 100px;
+}
+
+.emptyGarden {
+  text-align: center;
+  color: #888;
+  font-size: 0.95rem;
+  padding: 2rem 1rem;
+  margin: 0;
+  font-style: italic;
+}

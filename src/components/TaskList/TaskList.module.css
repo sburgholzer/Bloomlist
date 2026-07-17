@@ -1,0 +1,17 @@
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.emptyState {
+  text-align: center;
+  color: #888;
+  font-size: 0.95rem;
+  padding: 2rem 1rem;
+  margin: 0;
+  font-style: italic;
+}

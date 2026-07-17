@@ -1,0 +1,90 @@
+.taskItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: background-color 0.15s ease;
+}
+
+.taskItem:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.toggleButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  border: 2px solid #999;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.toggleButton:hover {
+  border-color: #4caf50;
+}
+
+.toggleButton:focus-visible {
+  outline: 2px solid #1976d2;
+  outline-offset: 2px;
+}
+
+.toggleButton[aria-checked="true"] {
+  border-color: #4caf50;
+  background-color: #4caf50;
+}
+
+.checkIcon {
+  width: 18px;
+  height: 18px;
+  color: #fff;
+}
+
+.title {
+  flex: 1;
+  font-size: 1rem;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.titleCompleted {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.deleteButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  border: none;
+  border-radius: 8px;
+  background: none;
+  cursor: pointer;
+  color: #999;
+  padding: 0;
+  flex-shrink: 0;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.deleteButton:hover {
+  color: #e53935;
+  background-color: rgba(229, 57, 53, 0.08);
+}
+
+.deleteButton:focus-visible {
+  outline: 2px solid #1976d2;
+  outline-offset: 2px;
+}
+
+.deleteIcon {
+  width: 20px;
+  height: 20px;
+}
